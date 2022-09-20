@@ -17,8 +17,9 @@ var upload = multer({
     ) {
       cb(null, true);
     } else {
-      var newError = new Error("file type is incorrect");
+      var newError = new Error("File type is incorrect");
       newError.name = "MulterError";
+      newError.status = 400;
       cb(newError, false);
     }
   },
