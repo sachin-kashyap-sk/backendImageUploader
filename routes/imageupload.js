@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const { Router, application } = require("express");
 const { imageUpload, getAllImages } = require("../controllers/imageController");
 const router = Router();
 const upload = require("../multer");

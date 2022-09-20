@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = process.env.PORT || 123;
+const PORT = process.env.PORT || 1234;
 dotenv.config();
 
 app.use(cors());
@@ -25,5 +25,10 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+app.use(function (err, req, res, next) {
+  console.log(err);
+  res.send(err.message);
+});
 
 app.listen(PORT, () => console.log("Server connected successfully....!!!"));
